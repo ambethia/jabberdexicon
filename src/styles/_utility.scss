@@ -1,6 +1,12 @@
 $base-text-size: 16px;
 $base-font-family: sans-serif;
 
+$color-00: #505354;
+$color-01: #799483;
+$color-02: #c1d6b8;
+$color-03: #e9f2c2;
+$color-04: #f6f4e7;
+
 // Remove the browsers built-in styling for lists elements.
 @mixin reset-list {
   padding-left: 0;
@@ -17,6 +23,6 @@ $base-font-family: sans-serif;
 
   body,
   #root {
-    min-height: 100%;
+    min-height: 100vh;
   }
 }
