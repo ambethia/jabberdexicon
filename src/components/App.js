@@ -40,8 +40,10 @@ class App extends Component {
           </Switch>
         </main>
         <footer>
-          <p>&copy; 2017 Jason L Perry. Built with &hearts; at The Iron Yard in Saint Petersburg, FL.</p>
           <p><Link to='/new'>Add an Entry</Link></p>
+          <p>
+            Built with <i className='fa fa-heart' /> at <strong>The Iron Yard</strong> in Saint Petersburg, FL.
+          </p>
         </footer>
       </div>
     </Router>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { get } from '../utils/api'
 
 class Entry extends Component {
@@ -28,7 +29,17 @@ class Entry extends Component {
     const { entry } = this.state
     if (entry) {
       return <div className='Entry'>
-        <h2>{entry.term}</h2>
+        <header>
+          <h2>{entry.term}</h2>
+          <ul>
+            <li>
+              <Link to={`/entry/${entry.slug}/edit`} title='Edit'><i className='fa fa-pencil' /></Link>
+            </li>
+            <li>
+              <Link to={`/entry/${entry.slug}/delete`} title='Delete'><i className='fa fa-trash' /></Link>
+            </li>
+          </ul>
+        </header>
         <div className='definition' dangerouslySetInnerHTML={{__html: entry.formatted_definition}} />
       </div>
     } else {

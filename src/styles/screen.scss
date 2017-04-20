@@ -1,8 +1,5 @@
 @import 'utility';
 
-$base-text-size: 16px;
-$base-font-family: sans-serif;
-
 html {
   @include full-height;
 }
@@ -12,7 +9,6 @@ body {
   font: $base-text-size / 1 $base-font-family;
   background-color: $color-04;
   color: $color-00;
-  text-shadow: 0 0 5px transparentize($color-00, 0.5);
 }
 
 a {
@@ -26,17 +22,24 @@ a {
 
   &:hover,
   &:focus {
-    color: lighten($color-01, 20%);
-    text-shadow: 0 0 5px darken($color-03, 20%);
+    color: $color-03;
   }
 }
 
 .App {
-  min-height: 100vh;
   max-width: 720px;
   margin: auto;
   display: flex;
   flex-direction: column;
+}
+
+.App > header {
+  h1 {
+    a:link,
+    a:visited {
+      color: $color-03;
+    }
+  }
 }
 
 nav {
@@ -44,6 +47,7 @@ nav {
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
+  font-family: $alt-font-family;
 
   ul {
     @include reset-list;
@@ -61,50 +65,157 @@ nav {
     color: $color-00;
     font-weight: bold;
   }
+
+  input {
+    padding: 0.2em;
+  }
 }
 
 main {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  > div {
+    flex: 1;
+    width: 100%;
+  }
 }
 
 footer {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
+  margin: 1em;
+}
+
+input,
+textarea,
+button {
+  box-sizing: border-box;
+  border: medium solid $color-01;
+  border-radius: 0.2em;
+  padding: 0.5em;
+  font-size: 1em;
+  background-color: $color-02;
+  color: $color-01;
+  font-family: $alt-font-family;
+}
+
+input,
+textarea {
+  background-color: lighten($color-04, 4%);
+  width: 100%;
+  color: $color-00;
+
+  &:focus {
+    background-color: lighten($color-04, 6%);
+  }
+}
+
+.fa-heart {
+  color: #a12b30;
 }
 
 .Browse {
   h2 {
     text-transform: uppercase;
-    border-bottom: medium solid $color-00;
+    border-bottom: thin solid $color-00;
   }
 }
 
 .NewEntry {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   form {
-    margin: auto;
+    margin: 0 auto;
     width: 400px;
 
     label {
       display: block;
     }
 
-    input,
-    textarea,
-    button {
-      border: medium solid $color-01;
-      border-radius: 0.2em;
-      padding: 0.5em;
-      font-size: 1em;
-      background-color: $color-02;
-      color: $color-01;
+    .actions {
+      text-align: right;
+    }
+  }
+}
+
+.Home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+
+  h3 {
+    font-style: italic;
+  }
+
+  img {
+    opacity: 0.8;
+  }
+}
+
+.Entry {
+  header {
+    display: flex;
+    align-items: center;
+    border-bottom: thin solid $color-00;
+    margin: 1em 0;
+
+    h2 {
+      flex: 1;
+      margin: 0;
+      font-size: 2em;
     }
 
-    input,
-    textarea {
-      background-color: lighten($color-04, 20%);
-      width: 100%;
-      color: $color-00;
+    ul {
+      @include reset-list;
+
+      align-items: center;
+      display: flex;
+      margin: 0;
+
+      li {
+        padding: 0.5em;
+      }
     }
+  }
+
+  .definition {
+    background-color: darken($color-04, 5%);
+    color: $color-01;
+    padding: 1em;
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    h2 {
+      font-size: 1.4em;
+    }
+
+    h3 {
+      font-size: 1.3em;
+    }
+
+    h4 {
+      font-size: 1.2em;
+    }
+  }
+}
+
+.EntryList {
+  @include reset-list;
+
+  li {
+    margin: 1em 0;
   }
 }

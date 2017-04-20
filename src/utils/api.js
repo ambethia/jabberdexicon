@@ -6,7 +6,19 @@ const get = (path, params = {}) => {
   return window.fetch(url).then(r => r.json())
 }
 
-const qs = (params) => {
+const post = (path, params = {}) => {
+  const url = [API_BASE, path, '?', qs()].join('')
+  return window.fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(params)
+  })
+  .then(r => r.json())
+}
+
+const qs = (params = {}) => {
   const opt = Object.assign(params, { access_token: TOKEN })
   const esc = encodeURIComponent
   return Object.keys(opt)
@@ -14,4 +26,4 @@ const qs = (params) => {
     .join('&')
 }
 
-export { get }
+export { get, post }

@@ -19,7 +19,7 @@ class Browse extends Component {
     return this.state.entries.filter((entry) => {
       return this.letter === '0'
         ? entry.term.match(/^\d/)
-        : entry.term[0] === this.letter
+        : entry.term[0].toLowerCase() === this.letter
     })
   }
 

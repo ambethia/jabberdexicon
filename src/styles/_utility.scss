@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Quando');
+
 $base-text-size: 16px;
-$base-font-family: sans-serif;
+$base-font-family: 'Quando', sans-serif;
+$alt-font-family: 'Lato', serif;
 
 $color-00: #505354;
 $color-01: #799483;
 $color-02: #c1d6b8;
-$color-03: #e9f2c2;
+$color-03: #a12b30;
 $color-04: #f6f4e7;
 
 // Remove the browsers built-in styling for lists elements.
@@ -22,7 +25,8 @@ $color-04: #f6f4e7;
   height: 100%;
 
   body,
-  #root {
+  #root,
+  #root > div {
     min-height: 100vh;
   }
 }

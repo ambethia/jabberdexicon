@@ -11,8 +11,8 @@ class Search extends Component {
     this.updateResults()
   }
 
-  componentWillReceiveProps (nextProps) {
-    if (nextProps.match.params.query !== this.query) {
+  componentDidUpdate (prevProps) {
+    if (prevProps.match.params.query !== this.query) {
       this.updateResults()
     }
   }
