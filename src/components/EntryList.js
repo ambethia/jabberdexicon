@@ -1,16 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const EntryList = ({ entries }) => {
-  return <ul className='EntryList'>
-    {entries.map(entry =>
-      <li key={entry.id}>
-        <Link to={`/entry/${entry.slug}`}>
-          {entry.term}
-        </Link>
-      </li>
-    )}
+const Entry = ({ term, slug }) => 
+  <li>
+    <Link to={`/entry/${slug}`}>
+      {term}
+    </Link>
+  </li>
+
+const EntryList = ({ entries }) =>
+  <ul className='EntryList'>
+    <Map of={entries} to={Entry} />
+    {entries.map(entry => <Entry {...entry} key={entry.id} /> )}
   </ul>
-}
 
 export default EntryList
