@@ -10,7 +10,6 @@ const Entry = ({ term, slug }) =>
 
 const EntryList = ({ entries }) =>
   <ul className='EntryList'>
-    <Map of={entries} to={Entry} />
     {entries.map(entry => <Entry {...entry} key={entry.id} /> )}
   </ul>
 
